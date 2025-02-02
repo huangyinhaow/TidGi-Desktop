@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { IPreferences } from '@services/preferences/interface';
 import { WindowNames } from '@services/windows/WindowProperties';
@@ -61,7 +61,7 @@ export interface IProps {
   themeSource: IPreferences['themeSource'];
 }
 
-export function NewUserMessage(props: IProps): JSX.Element {
+export function NewUserMessage(props: IProps): React.JSX.Element {
   const { t } = useTranslation();
   return (
     <AddWorkspaceGuideInfoContainer

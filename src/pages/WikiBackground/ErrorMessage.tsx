@@ -2,7 +2,7 @@
 import { Accordion, AccordionDetails, AccordionSummary, Button, Typography } from '@mui/material';
 import { useCallback } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { usePromiseValue } from '@/helpers/useServiceValue';
 import { IWorkspaceMetaData, IWorkspaceWithMetadata } from '@services/workspaces/interface';
@@ -30,7 +30,7 @@ interface IWikiErrorMessagesProps {
   activeWorkspace: IWorkspaceWithMetadata;
 }
 
-export function WikiErrorMessages(props: IWikiErrorMessagesProps): JSX.Element {
+export function WikiErrorMessages(props: IWikiErrorMessagesProps): React.JSX.Element {
   const { t } = useTranslation();
   const wikiLogs = usePromiseValue(async () => await window.service.wiki.getWikiErrorLogs(props.activeWorkspace.id, props.activeWorkspace.name));
   if (wikiLogs !== undefined) {
@@ -82,7 +82,7 @@ interface IViewLoadErrorMessagesProps {
   activeWorkspaceMetadata: IWorkspaceMetaData;
 }
 
-export function ViewLoadErrorMessages(props: IViewLoadErrorMessagesProps): JSX.Element {
+export function ViewLoadErrorMessages(props: IViewLoadErrorMessagesProps): React.JSX.Element {
   const { t } = useTranslation();
   const requestReload = useCallback(async (): Promise<void> => {
     await window.service.workspace.updateMetaData(props.activeWorkspace.id, { didFailLoadErrorMessage: null, isLoading: false });

@@ -1,7 +1,7 @@
 import { Button, TextField } from '@mui/material';
 import useDebouncedCallback from 'beautiful-react-hooks/useDebouncedCallback';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { useUserInfoObservable } from '@services/auth/hooks';
 import { IUserInfos } from '@services/auth/interface';
@@ -28,9 +28,9 @@ GitTokenInput.defaultProps = {
 };
 
 export function GitTokenForm(props: {
-  children?: JSX.Element | Array<JSX.Element | undefined | string>;
+  children?: React.JSX.Element | Array<React.JSX.Element | undefined | string>;
   storageService: SupportedStorageServices;
-}): JSX.Element {
+}): React.JSX.Element {
   const { children, storageService } = props;
   const { t } = useTranslation();
 

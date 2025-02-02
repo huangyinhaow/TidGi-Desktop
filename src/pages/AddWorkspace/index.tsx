@@ -4,7 +4,7 @@ import { Accordion as AccordionRaw, AccordionDetails, AccordionSummary, AppBar, 
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { SupportedStorageServices } from '@services/types';
 
@@ -71,7 +71,7 @@ const AdvancedSettingsAccordionSummary = styled(AccordionSummary)`
   margin-top: 10px;
 `;
 
-export function AddWorkspace(): JSX.Element {
+export function AddWorkspace(): React.JSX.Element {
   const { t } = useTranslation();
   const [currentTab, currentTabSetter] = useState<CreateWorkspaceTabs>(
     (window.meta() as IPossibleWindowMeta<WindowMeta[WindowNames.addWorkspace]>)?.addWorkspaceTab ?? CreateWorkspaceTabs.CreateNewWiki,
