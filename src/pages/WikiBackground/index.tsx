@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/promise-function-async */
 import { Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { useWorkspacesListObservable } from '@services/workspaces/hooks';
 import { useState } from 'react';
@@ -20,7 +20,7 @@ const InnerContentRoot = styled.div`
   height: 100%;
 `;
 
-export function WikiBackground(): JSX.Element {
+export function WikiBackground(): React.JSX.Element {
   const { t } = useTranslation();
   const workspacesList = useWorkspacesListObservable();
 

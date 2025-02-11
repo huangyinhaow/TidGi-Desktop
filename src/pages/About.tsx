@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Trans, useTranslation } from 'react-i18next';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { usePromiseValue } from '@/helpers/useServiceValue';
 import { Button, DialogContent as DialogContentRaw } from '@mui/material';
@@ -65,7 +65,7 @@ const Link = styled.span`
   }
 `;
 
-export default function About(): JSX.Element {
+export default function About(): React.JSX.Element {
   const { t } = useTranslation();
   const versions = usePromiseValue(async () => {
     const processVersions = await window.service.context.get('environmentVersions');

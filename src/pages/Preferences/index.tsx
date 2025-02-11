@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { useRestartSnackbar } from '@/components/RestartSnackbar';
 
@@ -33,7 +33,7 @@ const Inner = styled.div`
   float: right;
 `;
 
-export default function Preferences(): JSX.Element {
+export default function Preferences(): React.JSX.Element {
   const { t } = useTranslation();
   const sections = usePreferenceSections();
   const [requestRestartCountDown, RestartSnackbar] = useRestartSnackbar();

@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 const Root = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ const InfoContainer = styled.div`
   padding: 0 12px;
 `;
 
-export default function FindInPage(): JSX.Element | null {
+export default function FindInPage(): React.JSX.Element | null {
   const { t } = useTranslation();
   const [open, openSetter] = useState(false);
   const [text, textSetter] = useState('');

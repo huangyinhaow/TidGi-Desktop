@@ -1,6 +1,6 @@
 import { Autocomplete, Button, Fab, Paper, TextField, Tooltip, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 export const CreateContainer = styled(Paper)`
   padding: 10px;
@@ -12,11 +12,13 @@ export const LocationPickerContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 10px;
+  width: 100%;
   background-color: ${({ theme }) => theme.palette.background.paper};
   color: ${({ theme }) => theme.palette.text.primary};
 `;
 export const LocationPickerInput = styled(TextField)`
   background-color: ${({ theme }) => theme.palette.background.paper};
+  flex: 1;
 `;
 LocationPickerInput.defaultProps = {
   fullWidth: true,
@@ -56,7 +58,7 @@ export const WikiLocation = styled(Typography)`
 `;
 WikiLocation.defaultProps = { variant: 'body2', noWrap: true, display: 'inline', align: 'center' };
 
-export function ReportErrorButton(props: { message: string }): JSX.Element {
+export function ReportErrorButton(props: { message: string }): React.JSX.Element {
   const { t } = useTranslation();
   return (
     <Tooltip title={(t('Dialog.ReportBugDetail') ?? '') + (t('Menu.ReportBugViaGithub') ?? '')}>
@@ -81,7 +83,7 @@ const AbsoluteFab = styled(Fab)`
   color: rgba(0, 0, 0, 0.2);
   font-size: 10px;
 `;
-export function ReportErrorFabButton(props: { message: string }): JSX.Element {
+export function ReportErrorFabButton(props: { message: string }): React.JSX.Element {
   const { t } = useTranslation();
   return (
     <Tooltip title={(t('Dialog.ReportBugDetail') ?? '') + (t('Menu.ReportBugViaGithub') ?? '')}>

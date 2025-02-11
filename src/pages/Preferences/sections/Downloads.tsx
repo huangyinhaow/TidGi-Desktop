@@ -1,6 +1,5 @@
-import { Divider, List, ListItemSecondaryAction, Switch } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import React from 'react';
+import { Divider, List, ListItemButton, Switch } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 import { ListItem, ListItemText } from '@/components/ListItem';
@@ -8,7 +7,7 @@ import { usePreferenceObservable } from '@services/preferences/hooks';
 import { Paper, SectionTitle } from '../PreferenceComponents';
 import type { ISectionProps } from '../useSections';
 
-export function Downloads(props: Required<ISectionProps>): JSX.Element {
+export function Downloads(props: Required<ISectionProps>): React.JSX.Element {
   const { t } = useTranslation();
 
   const preference = usePreferenceObservable();
@@ -20,8 +19,7 @@ export function Downloads(props: Required<ISectionProps>): JSX.Element {
         <List dense disablePadding>
           {preference === undefined ? <ListItem>{t('Loading')}</ListItem> : (
             <>
-              <ListItem
-                button
+              <ListItemButton
                 onClick={() => {
                   window.service.native
                     .pickDirectory(preference.downloadPath)
@@ -38,11 +36,10 @@ export function Downloads(props: Required<ISectionProps>): JSX.Element {
               >
                 <ListItemText primary={t('Preference.DownloadLocation')} secondary={preference.downloadPath} />
                 <ChevronRightIcon color='action' />
-              </ListItem>
+              </ListItemButton>
               <Divider />
-              <ListItem>
-                <ListItemText primary={t('Preference.AskDownloadLocation')} />
-                <ListItemSecondaryAction>
+              <ListItem
+                secondaryAction={
                   <Switch
                     edge='end'
                     color='primary'
@@ -51,7 +48,9 @@ export function Downloads(props: Required<ISectionProps>): JSX.Element {
                       await window.service.preference.set('askForDownloadPath', event.target.checked);
                     }}
                   />
-                </ListItemSecondaryAction>
+                }
+              >
+                <ListItemText primary={t('Preference.AskDownloadLocation')} />
               </ListItem>
             </>
           )}
